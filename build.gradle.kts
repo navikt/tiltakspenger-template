@@ -35,7 +35,7 @@ configurations.all {
 }
 
 application {
-    mainClass.set("no.nav.tiltakspenger.mottak.AppKt")
+    mainClass.set("no.nav.tiltakspenger.NAVN_PÅ_KLASSEN_MED_MAIN_METODE")
 }
 
 java {
