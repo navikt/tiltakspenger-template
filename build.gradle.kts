@@ -4,7 +4,6 @@ plugins {
     application
     kotlin("jvm") version "1.7.0"
     kotlin("plugin.serialization") version "1.7.0"
-    id("com.github.johnrengelman.shadow") version "7.1.2"
     id("io.gitlab.arturbosch.detekt") version "1.20.0"
     id("ca.cutterslade.analyze") version "1.9.0"
 }
@@ -19,6 +18,9 @@ dependencies {
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("stdlib"))
+    implementation("ch.qos.logback:logback-classic:1.2.11")
+    implementation("net.logstash.logback:logstash-logback-encoder:7.2")
+    implementation("org.slf4j:slf4j-api:1.7.36")
     implementation("io.github.microutils:kotlin-logging-jvm:2.1.23")
     implementation("org.jetbrains:annotations:23.0.0")
 
@@ -49,6 +51,19 @@ detekt {
     config = files("$projectDir/config/detekt.yml")
 }
 
+tasks.withType<Jar>().configureEach {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes(mapOf("Main-Class" to application.mainClass.get()))
+    }
+
+    from(
+        configurations.runtimeClasspath.get().map {
+            if (it.isDirectory) it else zipTree(it)
+        }
+    )
+}
+
 tasks {
     compileKotlin {
         kotlinOptions.jvmTarget = javaVersion.toString()
@@ -60,10 +75,6 @@ tasks {
     test {
         // JUnit 5 support
         useJUnitPlatform()
-    }
-    shadowJar {
-        dependsOn("test")
-        transform(com.github.jengelman.gradle.plugins.shadow.transformers.Log4j2PluginsCacheFileTransformer::class.java)
     }
     analyzeClassesDependencies {
         warnUsedUndeclared = true
