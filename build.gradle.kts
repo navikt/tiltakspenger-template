@@ -24,7 +24,7 @@ dependencies {
     implementation("io.github.microutils:kotlin-logging-jvm:2.1.23")
     implementation("org.jetbrains:annotations:23.0.0")
 
-    testImplementation(platform("org.junit:junit-bom:5.8.2"))
+    testImplementation(platform("org.junit:junit-bom:5.9.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testImplementation("io.mockk:mockk:1.12.5")
     testImplementation("io.mockk:mockk-dsl-jvm:1.12.4")
