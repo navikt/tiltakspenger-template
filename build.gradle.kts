@@ -3,7 +3,7 @@ val javaVersion = JavaVersion.VERSION_17
 plugins {
     application
     kotlin("jvm") version "1.7.10"
-    kotlin("plugin.serialization") version "1.7.0"
+    kotlin("plugin.serialization") version "1.7.10"
     id("io.gitlab.arturbosch.detekt") version "1.21.0"
     id("ca.cutterslade.analyze") version "1.9.0"
 }
