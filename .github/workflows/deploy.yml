@@ -1,6 +1,6 @@
 name: Build, push, and deploy
 
-on: [ push ]
+on: push
 
 env:
   IMAGE: ghcr.io/${{ github.repository }}:${{ github.sha }}
@@ -36,7 +36,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Docker build and push
         if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v3
         with:
