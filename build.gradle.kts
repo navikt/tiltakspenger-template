@@ -1,4 +1,5 @@
 val javaVersion = JavaVersion.VERSION_17
+val mockkVersion = "1.12.6"
 
 plugins {
     application
@@ -25,8 +26,8 @@ dependencies {
 
     testImplementation(platform("org.junit:junit-bom:5.9.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
-    testImplementation("io.mockk:mockk:1.12.5")
-    testImplementation("io.mockk:mockk-dsl-jvm:1.12.5")
+    testImplementation("io.mockk:mockk:$mockkVersion")
+    testImplementation("io.mockk:mockk-dsl-jvm:$mockkVersion")
     testImplementation("org.skyscreamer:jsonassert:1.5.1")
 }
 
