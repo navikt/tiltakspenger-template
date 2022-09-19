@@ -20,7 +20,7 @@ dependencies {
     implementation(kotlin("stdlib"))
     implementation("ch.qos.logback:logback-classic:1.4.1")
     implementation("net.logstash.logback:logstash-logback-encoder:7.2")
-    implementation("io.github.microutils:kotlin-logging-jvm:2.1.23")
+    implementation("io.github.microutils:kotlin-logging-jvm:3.0.0")
     implementation("org.jetbrains:annotations:23.0.0")
 
     testImplementation(platform("org.junit:junit-bom:5.9.0"))
