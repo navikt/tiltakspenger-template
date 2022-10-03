@@ -17,7 +17,7 @@ dependencies {
     // Align versions of all Kotlin components
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation(kotlin("stdlib"))
-    implementation("ch.qos.logback:logback-classic:1.4.1")
+    implementation("ch.qos.logback:logback-classic:1.4.3")
     implementation("net.logstash.logback:logstash-logback-encoder:7.2")
     implementation("io.github.microutils:kotlin-logging-jvm:3.0.0")
     implementation("org.jetbrains:annotations:23.0.0")
