@@ -4,8 +4,8 @@ val mockkVersion = "1.13.5"
 plugins {
     application
     kotlin("jvm") version "1.8.22"
-    id("io.gitlab.arturbosch.detekt") version "1.23.0"
     id("ca.cutterslade.analyze") version "1.9.1"
+    id("com.diffplug.spotless") version "6.17.0"
 }
 
 repositories {
@@ -46,10 +46,10 @@ java {
     targetCompatibility = javaVersion
 }
 
-detekt {
-    buildUponDefaultConfig = true
-    allRules = false
-    config = files("$projectDir/config/detekt.yml")
+spotless {
+    kotlin {
+        ktlint("0.48.2")
+    }
 }
 
 tasks {
