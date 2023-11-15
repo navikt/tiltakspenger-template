@@ -1,10 +1,10 @@
-val javaVersion = JavaVersion.VERSION_17
+val javaVersion = JavaVersion.VERSION_21
 val mockkVersion = "1.13.8"
 
 plugins {
     application
-    kotlin("jvm") version "1.9.10"
-    id("ca.cutterslade.analyze") version "1.9.1"
+    kotlin("jvm") version "1.9.20"
+    // id("ca.cutterslade.analyze") version "1.9.1"
     id("com.diffplug.spotless") version "6.22.0"
 }
 
@@ -66,6 +66,7 @@ tasks {
         // https://phauer.com/2018/best-practices-unit-testing-kotlin/
         systemProperty("junit.jupiter.testinstance.lifecycle.default", "per_class")
     }
+    /*
     analyzeClassesDependencies {
         warnUsedUndeclared = true
         warnUnusedDeclared = true
@@ -74,4 +75,5 @@ tasks {
         warnUsedUndeclared = true
         warnUnusedDeclared = true
     }
+     */
 }
